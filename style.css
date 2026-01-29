@@ -1,0 +1,332 @@
+/* 
+ * Silent Core Ltd - Modern British Corporate Design System
+ * --------------------------------------------------------
+ * Style: Clean, Minimalist, Corporate Tech
+ * Colors: Deep Midnight Blue, Electric Blue, White, Light Grey
+ * Typography: Inter (Google Fonts)
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Color Palette */
+    --primary-color: #0b0c10;      /* Deep Midnight Blue - Backgrounds/Text */
+    --secondary-color: #1f2833;    /* Dark Grey - Card Backgrounds */
+    --accent-color: #66fcf1;       /* Electric Blue - Highlights/CTAs */
+    --accent-dim: #45a29e;         /* Muted Blue - Secondary Accents */
+    --text-light: #ffffff;         /* White - Headlines */
+    --text-grey: #c5c6c7;          /* Light Grey - Body Text */
+    --bg-light: #f4f7f6;           /* White/Grey - Light Sections */
+    --text-dark: #121212;          /* Black - Text on Light BG */
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 8rem;
+
+    /* Typography */
+    --font-main: 'Inter', sans-serif;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.25rem;
+    --text-xl: 2rem;
+    --text-2xl: 3rem;
+    --text-3xl: 4.5rem; /* Hero sizing */
+
+    /* UI Elements */
+    --border-radius: 4px; /* Sharp/Minimal */
+    --shadow-sm: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-md: 0 10px 30px rgba(0,0,0,0.15);
+    --transition: all 0.3s ease;
+}
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--primary-color);
+    color: var(--text-grey);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+/* Typography Utilities */
+h1, h2, h3, h4 {
+    color: var(--text-light);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.text-accent { color: var(--accent-color); }
+.text-dark { color: var(--text-dark); }
+.text-center { text-align: center; }
+
+/* Components */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background: var(--accent-color);
+    color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(102, 252, 241, 0.4);
+}
+
+.btn-primary {
+    background: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background: var(--text-light);
+    border-color: var(--text-light);
+}
+
+/* Navigation - Modern Glassmorphism */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1.5rem 0;
+    background: rgba(11, 12, 16, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-light);
+    letter-spacing: -1px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo span {
+    color: var(--accent-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+}
+
+.nav-links a {
+    color: var(--text-grey);
+    font-size: 0.95rem;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--text-light);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Sections */
+section {
+    padding: var(--spacing-xl) 0;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: radial-gradient(circle at 70% 20%, rgba(31, 40, 51, 0.4) 0%, rgba(11, 12, 16, 1) 60%);
+    position: relative;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--spacing-md);
+    background: linear-gradient(90deg, #fff, #a0a0a0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: var(--text-lg);
+    margin-bottom: var(--spacing-lg);
+    max-width: 600px;
+    color: var(--text-grey);
+}
+
+/* Services Grid */
+.services {
+    background: var(--primary-color);
+}
+
+.section-header {
+    margin-bottom: var(--spacing-lg);
+}
+
+.section-header h2 {
+    font-size: var(--text-2xl);
+    margin-bottom: 1rem;
+}
+
+.section-header .line {
+    width: 60px;
+    height: 4px;
+    background: var(--accent-color);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: var(--secondary-color);
+    padding: 3rem 2rem;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-dim);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+}
+
+.card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+/* About Section */
+.about {
+    background: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.about h2 {
+    color: var(--text-dark);
+}
+
+.about p {
+    color: #4a4a4a;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+/* Contact / Footer */
+.footer {
+    background: #000;
+    padding: var(--spacing-lg) 0;
+    border-top: 1px solid #1f2833;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.company-info h4 {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.company-info p {
+    margin-bottom: 0.5rem;
+    color: #888;
+}
+
+.contact-highlight {
+    color: var(--accent-color) !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    :root {
+        --text-3xl: 3rem;
+        --spacing-lg: 3rem;
+    }
+    
+    .nav-links {
+        display: none; /* Simplify for MVP, can add burger menu later */
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
